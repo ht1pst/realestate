@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import houseImage from '../src/assets/realestate.webp';
 import cover2 from '../src/assets/cover.jpeg';
 
@@ -10,12 +11,9 @@ function Home() {
       
       {/* Navbar */}
       <header className="fixed top-0 left-0 w-full h-20 bg-white flex items-center justify-between px-6 text-gray-500 text-lg font-medium shadow-sm z-50">
-        {/* Logo */}
         <div className="text-black text-2xl font-black">
           <span className="font-bold text-xl">▇◣◢</span>
         </div>
-
-        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6">
           <a href="#home" className="hover:text-black">Home</a>
           <a href="#about" className="hover:text-black">About</a>
@@ -23,8 +21,6 @@ function Home() {
           <a href="#properties" className="hover:text-black">Properties</a>
           <a href="#contact" className="hover:text-black">Contact</a>
         </nav>
-
-        {/* Hamburger (Mobile) */}
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,17 +46,38 @@ function Home() {
       )}
 
       {/* Hero Section */}
-      <main
-        className=" pt-90 items-center justify-center text-center w-full h-screen bg-cover bg-center " 
-      >
+      <main className="pt-90 items-center justify-center text-center w-full h-screen bg-cover bg-center">
+        <div>
+          <motion.h1
+            className="text-black text-5xl md:text-8xl font-bold"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ amount: 0.3 }}
+          >
+            Modern Homes.
+          </motion.h1>
 
-        {/* Hero Content */}
-        <div className="">
-          <h1 className="text-black text-5xl md:text-8xl font-bold overflow-hidden">Modern Homes.</h1>
-          <p className="text-gray-600 text-xl md:text-5xl mt-4 font-semibold overflow-hidden">Real estate reimagined.</p>
-          <button className="mt-6 px-6 py-2 bg-black text-white rounded-full hover:scale-105 transition text-lg font-medium">
+          <motion.p
+            className="text-gray-600 text-xl md:text-5xl mt-4 font-semibold"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ amount: 0.3 }}
+          >
+            Real estate reimagined.
+          </motion.p>
+
+          <motion.button
+            className="mt-6 px-6 py-2 bg-black text-white rounded-full hover:scale-105 transition text-lg font-medium"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ amount: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+          >
             Explore
-          </button>
+          </motion.button>
         </div>
       </main>
     </div>
